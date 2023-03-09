@@ -16,21 +16,21 @@ int main()
     i=1;
     j=1;
 
-    while(i<=n)
+    while(i<=n)        //traverses through the rows.
     {
-        int num=i;
-        while(j<=n+i-1)
+        int num=i;            //stores row number, as we have to print that in modified form.
+        while(j<=n+i-1)       //traverses horizontally(column wise).
         {
-            if(j<=n-i)
+            if(j<=n-i)        //spaces.
             {
                 cout<<" ";
             }
-            else if(j<=n)
+            else if(j<=n)     //incrementing numbers in the start of the row.
             {
                 cout<<num;
                 num++;
             }
-            else
+            else              //decrementing numbers, in the end of the column.
             {
                 cout<<num;
                 num--;
