@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int max_sum(int n1, int n2, int arr1[], int arr2)
+int max_sum(int n1, int n2, int arra[], int arrb[])
 {
     int sum;
     int flag=0;
@@ -10,11 +10,11 @@ int max_sum(int n1, int n2, int arr1[], int arr2)
     {
         for(int j=0; j<n2; j++)
         {
-            if(arr1[i]!=arr[j])
+            if(arra[i]!=arrb[j])
             {
-                sum+=arr2[i];
+                sum+=arrb[i];
             }
-            else if(arr1[i]==arr2[j])
+            else if(arra[i]==arrb[j])
             {
                 temp=i;
                 flag=1;
@@ -24,7 +24,7 @@ int max_sum(int n1, int n2, int arr1[], int arr2)
             {
                 for(int k=temp; k<n1; k++)
                 {
-                    sum+=arr1[k];
+                    sum+=arra[k];
                 }
             }
             
@@ -33,7 +33,7 @@ int max_sum(int n1, int n2, int arr1[], int arr2)
         {
             for(int k=temp; k<n1; k++)
             {
-                sum+=arr1[k];
+                sum+=arra[k];
             }
         }
     }
