@@ -36,7 +36,7 @@ int main()
         {
             temp2=A[n-1-i][j];
             A[n-i-1][j]=A[i][j];
-            A[i][j]=temp2;
+            A[i][j]=temp2;w
         }
     }
     //rotation done

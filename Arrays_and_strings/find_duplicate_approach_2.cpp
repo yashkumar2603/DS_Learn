@@ -4,9 +4,10 @@ using namespace std;
 int main()
 {
     int n;
-    int arr[n];
+   
     cout<<"Enter the size of the array : ";
     cin>>n;
+     int arr[n];
 
     for(int i=0; i<n; i++)
     {
@@ -22,12 +23,14 @@ int main()
     int repeat;
     repeat = sum-((n-2)*(n-1)/2);
 
-    for(int i=0; i<n; i++)
+    cout<<"The repeated element is : "<<repeat<<endl;
+
+    /*for(int i=0; i<n; i++)
     {
         if(arr[i]==repeat)
         {
             cout<<"the repeated number is : "<<arr[i];
         }
-    }
+    }*/
     return 0;
 }
