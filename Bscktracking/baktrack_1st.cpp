@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define fio                           \
+// #define ll long long
+/* #define fio                           \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
-    cout.tie(NULL)
+    cout.tie(NULL) */
 using namespace std;
 
-bool haspathHelper(int **input, int n, int **solution, int x, int y)
+bool hasPathHelper(int **input, int n, int **solution, int x, int y)
 {
     if (x == n - 1 && y == n - 1)
     {
@@ -27,11 +27,11 @@ bool haspathHelper(int **input, int n, int **solution, int x, int y)
     {
         return true;
     }
-    if (hasPathHelper(input, n, solution, y - 1, y))
+    if (hasPathHelper(input, n, solution, x, y - 1))
     {
         return true;
     }
-    if (hasPathHelper(input, n, solution, y + 1, y))
+    if (hasPathHelper(input, n, solution, x, y + 1))
     {
         return true;
     }
@@ -47,7 +47,7 @@ bool hasPath(int **arr, int n)
         solution[i] = new int[n];
         for (int j = 0; j < n; j++)
         {
-            cin >> solution[i][j];
+            solution[i][j] = 0;
         }
     }
     return hasPathHelper(arr, n, solution, 0, 0);
