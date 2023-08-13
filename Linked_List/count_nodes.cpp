@@ -9,3 +9,14 @@ int count(struct Node *p)
     }
     return count;
 }
+
+int Recursive_count(struct Node *p)
+{
+    int count = 0;
+    if (p == 0)
+    {
+        return 0;
+    }
+    else
+        return count(p->next) + 1;
+}
