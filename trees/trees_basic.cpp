@@ -1,6 +1,36 @@
 #include <bits/stdc++.h>
+#include <queue>
 #include "TreeNode.h"
 using namespace std;
+
+TreeNode<int> *takeInputLevelWise()
+{
+    int rootData;
+    cout << "Enter the root data" << endl;
+    cin >> rootData;                                   // Get the root data
+    TreeNode<int> *root = new TreeNode<int>(rootData); // Put root data into newly created root node.
+
+    queue<TreeNode<int> *> pendingNodes; // declare the queue.
+
+    pendingNodes.push(root);         // push the root in the queue.
+    while (pendingNodes.size() != 0) // continue till the pendingNodes queue becomes empty.
+    {
+        TreeNode<int> *front = pendingNodes.front(); // Get the front node pointer by getting the front elemnt of the queue
+        pendingNodes.pop();                          // Pop the element already taken in the front node for tree.
+        cout << "Enter number of children of " << front->data << endl;
+        int numChild;
+        cin >> numChild; // Take input about the number of children.
+        for (int i = 0; i < numChild; i++)
+        {
+            int childData;
+            cout << "Enter" << i << "th child of " << front->data << endl;
+            cin >> childData;
+            TreeNode<int> *child = new TreeNode<int>(childData); // Create the child node.
+            front->children.push_back(&child);                   // Push the child node in the parent child list.
+            pendingNodes.push(child);
+        }
+    }
+}
 
 TreeNode<int> *takeInput()
 {
