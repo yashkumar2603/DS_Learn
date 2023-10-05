@@ -60,7 +60,7 @@ TreeNode<int> *takeInput()
     return root;
 }
 
-void printTree(TreeNode<int> *root)
+void printTreeLevelWise(TreeNode<int> *root)
 {
     if (root == NULL)
     { // edge case, tree empty.
@@ -76,15 +76,4 @@ void printTree(TreeNode<int> *root)
     {
         printTree(root->children[i]);
     }
-}
-
-int main()
-{
-    TreeNode<int> *root = new TreeNode<int>(1);
-    TreeNode<int> *node1 = new TreeNode<int>(2);
-    TreeNode<int> *node2 = new TreeNode<int>(3);
-    root->children.push_back(node1);
-    root->children.push_back(node2);
-    printTree(root);
-    return 0;
 }
