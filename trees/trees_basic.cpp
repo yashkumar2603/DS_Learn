@@ -78,6 +78,40 @@ void printTree(TreeNode<int> *root)
     }
 }
 
+void printAtDepthK(TreeNode<int> *root, int k)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    if (k = 0)
+    {
+        cout << root->data << endl;
+        return;
+    }
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        printAtDepthK(root->children[i], k - 1);
+    }
+}
+
+int LeafNodes(TreeNode<int> *root)
+{
+    int counter = 0;
+    if (root != NULL)
+    {
+        if (root->children.size() == 0)
+        {
+            counter++;
+        }
+        for (int i = 0; i < root->children.size(); i++)
+        {
+            LeafNodes(root->children[i]);
+        }
+    }
+    return counter;
+}
+
 int main()
 {
     TreeNode<int> *root = new TreeNode<int>(1);

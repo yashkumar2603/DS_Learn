@@ -23,6 +23,17 @@ TreeNode<int> *takeInput()
 
 int height(TreeNode<int> *root)
 {
+    int Height = 0;
+    int count = 0;
+    if (root == NULL)
+    {
+        return;
+    }
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        Height = height(root->children[i]);
+        count++;
+    }
 }
 
 int main()
