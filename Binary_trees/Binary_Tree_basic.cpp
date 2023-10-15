@@ -84,6 +84,15 @@ BinaryTreeNode<int> *takeInputLevelWise()
     return root;
 }
 
+int numnodes(BinaryTreeNode<int> *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    return 1 + numNodes(root->left) + numNodes(root->right);
+}
+
 int main()
 {
     // BinaryTreeNode<int> *root = new BinaryTreeNode<int>(1);
