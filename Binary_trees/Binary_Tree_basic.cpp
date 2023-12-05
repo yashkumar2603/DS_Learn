@@ -93,6 +93,81 @@ int numnodes(BinaryTreeNode<int> *root)
     return 1 + numNodes(root->left) + numNodes(root->right);
 }
 
+void inorder(BinaryTreeNode<int> *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+int height(node *node)
+{
+    if (node == NULL)
+        return 0;
+    else
+    {
+        /* compute the height of each subtree */
+        int lheight = height(node->left);
+        int rheight = height(node->right);
+
+        /* use the larger one */
+        if (lheight > rheight)
+        {
+            return (lheight + 1);
+        }
+        else
+        {
+            return (rheight + 1);
+        }
+    }
+}
+
+/* Function prototypes */
+void printCurrentLevel(node *root, int level);
+int height(node *node);
+node *newNode(int data);
+
+/* Print nodes at a given level */
+void printGivenLevel(struct node *root, int level)
+{
+    if (root == NULL)
+        return;
+    if (level == 1)
+        printf("%d ", root->data);
+    else if (level > 1)
+    {
+        printGivenLevel(root->left, level - 1);
+        printGivenLevel(root->right, level - 1);
+    }
+}
+
+void printLevelOrder(struct node *root)
+{
+    int h = height(root);
+    int i;
+    for (i = 1; i <= h; i++)
+    {
+        printGivenLevel(root, i);
+        printf("\n");
+    }
+}
+
+int diameter(BimnaryTreeNode<int> *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    int option1 = height(root->left) + height(root->right);
+    int option2 = diameter(root->left);
+    int option3 = diameter(root->right);
+    return max(option1, max(option2, option3));
+}
+
 int main()
 {
     // BinaryTreeNode<int> *root = new BinaryTreeNode<int>(1);
