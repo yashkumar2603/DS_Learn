@@ -156,7 +156,7 @@ void printLevelOrder(struct node *root)
     }
 }
 
-int diameter(BimnaryTreeNode<int> *root)
+int diameter(BinaryTreeNode<int> *root)
 {
     if (root == NULL)
     {
